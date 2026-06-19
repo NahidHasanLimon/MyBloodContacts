@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/bloodcontacsiconnew_512.png">
   <title>Blood Contacts</title>
   <style>
     :root {
@@ -46,12 +47,14 @@
     }
 
     .nav {
-      position: absolute;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 5;
-      padding: 24px 0;
+      z-index: 1000;
+      padding: 12px 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid #efdfe2;
+      box-shadow: 0 8px 24px rgba(64, 28, 33, 0.08);
     }
 
     .nav-inner {
@@ -65,7 +68,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: var(--white);
+      color: var(--ink);
       font-weight: 800;
       font-size: 1.05rem;
     }
@@ -73,38 +76,52 @@
     .brand-mark {
       width: 34px;
       height: 34px;
-      display: grid;
-      place-items: center;
+      display: inline-block;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      font-size: 1.1rem;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
     .nav-links {
       display: flex;
-      gap: 26px;
-      color: rgba(255, 255, 255, 0.88);
+      gap: 22px;
+      color: #4a3f42;
       font-size: 0.95rem;
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    .nav-links a,
+    .back-link {
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 140ms ease, color 140ms ease;
+    }
+
+    .nav-links a:hover,
+    .back-link:hover {
+      background: #ffecef;
+      color: #b41c2a;
     }
 
     .hero {
       position: relative;
-      min-height: 720px;
-      color: var(--white);
-      background:
-        linear-gradient(105deg, rgba(127, 16, 23, 0.96), rgba(159, 23, 32, 0.88) 47%, rgba(227, 52, 67, 0.78)),
-        url("https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: var(--ink);
+      background: #fffafa;
+      border-bottom: 1px solid #f4e5e7;
     }
 
     .hero-content {
-      min-height: 720px;
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-      align-items: center;
-      gap: 54px;
-      padding: 110px 0 70px;
+      gap: 18px;
+      padding: 28px 0 30px;
+    }
+
+    .hero-banner {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid #f1d7dc;
+      box-shadow: var(--shadow);
+      display: block;
     }
 
     .eyebrow {
@@ -484,7 +501,7 @@
     <nav class="nav" aria-label="Primary navigation">
       <div class="container nav-inner">
         <a class="brand" href="#">
-          <span class="brand-mark" aria-hidden="true">+</span>
+          <img class="brand-mark" src="assets/bloodcontacsiconnew_512.png" alt="Blood Contacts icon">
           <span>Blood Contacts</span>
         </a>
         <div class="nav-links">
@@ -494,56 +511,29 @@
         </div>
       </div>
     </nav>
-
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-content">
         <div>
-          <p class="eyebrow">Fast donor discovery</p>
-          <h1 id="hero-title">Find trusted blood donors when every minute matters.</h1>
-          <p class="hero-copy">Blood Contacts helps patients, families, and volunteers connect with nearby donors using clear profiles, blood group filters, and direct contact options.</p>
-          <div class="privacy-note" role="note" aria-label="Privacy first">
-            <strong>Privacy first.</strong>
-            <span>Your contacts stay on your mobile device by default. You can authorize Google synchronization to back up and restore your data if your device is lost.</span>
-          </div>
-          <div class="actions">
-            <a class="button button-primary" href="#cta">Start Connecting</a>
-            <a class="button button-secondary" href="#features">Explore Features</a>
-          </div>
+          <p class="eyebrow" style="color:#c02635;">Official Blood Contacts App</p>
+          <h1 id="hero-title" style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;color:#1f1517;margin-bottom:10px;">Trusted donor contact management with optional Google Drive backup.</h1>
+          <p class="hero-copy" style="color:#594f52;max-width:900px;">Blood Contacts helps users organize donor contacts, track urgent blood needs, and quickly call or message matching donors. Data stays local by default, with optional Google Drive sync when you choose.</p>
         </div>
+        <img class="hero-banner" src="assets/blood_contacts_app_banner.png" alt="Blood Contacts app banner showing donor management and Google Drive backup features">
+      </div>
+    </section>
 
-        <div class="phone-panel" aria-label="Blood Contacts app preview">
-          <div class="app-card">
-            <div class="app-top">
-              <strong>Available donors nearby</strong>
-              <div class="search-bar">Search by group, city, or hospital</div>
-            </div>
-            <div class="donor-list">
-              <div class="donor">
-                <div class="blood">A+</div>
-                <div>
-                  <strong>Rahim Ahmed</strong>
-                  <span>1.8 km away · Dhaka Medical</span>
-                </div>
-                <div class="status">Ready</div>
-              </div>
-              <div class="donor">
-                <div class="blood">O-</div>
-                <div>
-                  <strong>Nusrat Karim</strong>
-                  <span>3.2 km away · Square Hospital</span>
-                </div>
-                <div class="status">Ready</div>
-              </div>
-              <div class="donor">
-                <div class="blood">B+</div>
-                <div>
-                  <strong>Tanvir Hasan</strong>
-                  <span>5.4 km away · Apollo area</span>
-                </div>
-                <div class="status">Ready</div>
-              </div>
-            </div>
-          </div>
+    <section aria-labelledby="compliance-title">
+      <div class="container" style="padding: 8px 20px 24px;">
+        <div style="background:#fff8f2;border:1px solid #f1d7be;border-radius:14px;padding:16px;">
+          <h2 id="compliance-title" style="margin:0 0 8px;font-size:20px;">About Data Access and Google Sign-In</h2>
+          <p style="margin:0 0 8px;">Blood Contacts is the official website for the Blood Contacts app. The app uses Google Sign-In only when you choose optional Google Drive backup and sync.</p>
+          <ul style="margin:0 0 8px 18px;">
+            <li>Google OAuth scope used: <code>https://www.googleapis.com/auth/drive.file</code></li>
+            <li>Purpose: create, update, and restore Blood Contacts backup files in your Drive account</li>
+            <li>Android permissions used: Contacts read/write only for donor contact features</li>
+            <li>No broad photo-library permission is requested by the app</li>
+          </ul>
+          <p style="margin:0;">Read our full <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-of-service.html">Terms of Service</a>.</p>
         </div>
       </div>
     </section>
@@ -578,7 +568,7 @@
           <article class="feature">
             <div class="icon" aria-hidden="true">⏱</div>
             <h3>Blood Request Tracking</h3>
-            <p>Track whenever someone posts a blood need or request, so recent activity stays visible and easier to follow.</p>
+            <p>Create and track blood need requests with open/fulfilled status so urgent follow-ups stay visible.</p>
           </article>
         </div>
       </div>
@@ -588,7 +578,7 @@
       <div class="container">
         <div class="section-head">
           <h2 id="how-title">How It Works</h2>
-          <p>A simple flow for finding and contacting donors without slowing down the request.</p>
+          <p>A practical flow for managing donors and responding faster during urgent blood requests.</p>
         </div>
         <div class="steps">
           <article class="step">
@@ -600,8 +590,8 @@
             <p>Review location notes and readiness details before reaching out.</p>
           </article>
           <article class="step">
-            <h3>Connect quickly</h3>
-            <p>Contact matching donors and coordinate donation details with less back-and-forth.</p>
+            <h3>Contact quickly</h3>
+            <p>Call or message matching donors quickly and coordinate donation details with less delay.</p>
           </article>
         </div>
       </div>
@@ -611,9 +601,9 @@
       <div class="container cta-inner">
         <div>
           <h2 id="cta-title">Make every verified contact easier to find.</h2>
-          <p>Use Blood Contacts to organize donor data, reduce search time, and help people respond faster during critical moments.</p>
+          <p>Use Blood Contacts to organize donor data, track needs, and respond faster during critical moments while keeping control of your data.</p>
         </div>
-        <a class="button button-primary" href="#">Launch Blood Contacts</a>
+        <a class="button button-primary" href="https://play.google.com/store/apps/details?id=com.nhlimon.bloodcontacts" target="_blank" rel="noopener">Get it on Google Play</a>
       </div>
     </section>
 

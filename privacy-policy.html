@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/bloodcontacsiconnew_512.png">
   <title>Privacy Policy | Blood Contacts</title>
   <style>
     :root {
@@ -36,14 +37,20 @@
     }
 
     .container {
-      width: min(920px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
     .topbar {
-      background: var(--red-900);
-      color: var(--white);
-      padding: 22px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      padding: 12px 0;
+      backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid #efdfe2;
+      box-shadow: 0 8px 24px rgba(64, 28, 33, 0.08);
     }
 
     .topbar-inner {
@@ -57,6 +64,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      color: var(--ink);
       font-weight: 800;
     }
 
@@ -66,25 +74,35 @@
       display: grid;
       place-items: center;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: #ffe8eb;
+      border: 1px solid #f6c7cf;
+      color: var(--red-700);
     }
 
     .back-link {
-      color: rgba(255, 255, 255, 0.86);
+      color: #4a3f42;
       font-weight: 700;
       font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 140ms ease, color 140ms ease;
+    }
+
+    .back-link:hover {
+      background: #ffecef;
+      color: #b41c2a;
     }
 
     .hero {
-      padding: 74px 0 34px;
-      background: linear-gradient(135deg, var(--red-900), var(--red-700));
-      color: var(--white);
+      padding: 32px 0 20px;
+      background: #fffafa;
+      border-bottom: 1px solid #f4e5e7;
+      color: var(--ink);
     }
 
     .eyebrow {
-      margin: 0 0 14px;
-      color: #ffd7dc;
+      margin: 0 0 12px;
+      color: #c02635;
       font-size: 0.88rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -97,22 +115,23 @@
     }
 
     h1 {
-      max-width: 760px;
-      margin-bottom: 18px;
-      font-size: clamp(2.3rem, 6vw, 4.8rem);
-      line-height: 1;
+      max-width: 900px;
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
+      line-height: 1.08;
+      color: #1f1517;
       letter-spacing: 0;
     }
 
     .hero p:last-child {
-      max-width: 760px;
+      max-width: 920px;
       margin-bottom: 0;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 1.08rem;
+      color: #594f52;
+      font-size: 1.02rem;
     }
 
     .policy {
-      padding: 48px 0 74px;
+      padding: 30px 0 74px;
     }
 
     .policy-card {
@@ -193,7 +212,7 @@
       }
 
       .hero {
-        padding-top: 52px;
+        padding-top: 24px;
       }
     }
   </style>
@@ -202,7 +221,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">+</span>
+        <img class="brand-mark" src="assets/bloodcontacsiconnew_512.png" alt="Blood Contacts icon">
         <span>Blood Contacts</span>
       </a>
       <a class="back-link" href="index.html">Back to Home</a>
@@ -214,7 +233,7 @@
       <div class="container">
         <p class="eyebrow">Privacy Policy</p>
         <h1 id="policy-title">Your blood contact data belongs to you.</h1>
-        <p>Blood Contacts is designed to keep contact data on your mobile device by default, with optional Google synchronization only when you authorize it.</p>
+        <p>Blood Contacts is designed to store donor and blood-need data on your mobile device by default, with optional Google Drive backup and sync only when you authorize it.</p>
       </div>
     </section>
 
@@ -229,7 +248,7 @@
 
           <div class="section">
             <h2>Information You Add</h2>
-            <p>Blood Contacts may store donor names, phone numbers, blood groups, locations, availability notes, and blood need or request activity that you enter in the app.</p>
+            <p>Blood Contacts may store donor names, phone numbers, blood groups, areas, availability notes, optional contact photos, and blood need/request activity that you enter in the app.</p>
           </div>
 
           <div class="section">
@@ -239,17 +258,23 @@
 
           <div class="section">
             <h2>Optional Google Synchronization</h2>
-            <p>If you authorize Google synchronization, the app may sync your data with your Google account so you can back up and restore your contacts if your device is lost, damaged, or replaced. Google sync is optional and requires your permission.</p>
+            <p>If you authorize Google Drive sync, the app may back up and restore your Blood Contacts data using your Google account. Sync is optional and requires your permission.</p>
+          </div>
+
+          <div class="section">
+            <h2>Google OAuth, Scope, and Permissions</h2>
+            <p>When you choose to connect Google Drive, Blood Contacts uses Google Sign-In and requests only the scope <code>https://www.googleapis.com/auth/drive.file</code>. This scope is used only to create, read, and update Blood Contacts backup files in your Google Drive for backup and restore.</p>
+            <p>Android permissions used by the app are Contacts read/write permissions to help you import donors from phone contacts and optionally save contacts back to your phone. The app does not request broad photo-library permissions for gallery access and uses the system picker flow for user-selected images.</p>
           </div>
 
           <div class="section">
             <h2>How Data Is Used</h2>
-            <p>Your data is used to help you organize blood donor contacts, search by blood group or location, track blood needs or requests, and coordinate faster communication during urgent situations.</p>
+            <p>Your data is used to organize donor contacts, search by blood group or area, track blood needs or requests, and coordinate faster communication during urgent situations.</p>
           </div>
 
           <div class="section">
             <h2>Data Sharing</h2>
-            <p>We do not sell, rent, or share your contact data with advertisers. Data is shared only when you choose to contact someone, export information, or enable an external sync option such as Google synchronization.</p>
+            <p>We do not sell, rent, or share your contact data with advertisers. Data is shared only when you choose to contact someone, share information, or enable optional Google Drive sync.</p>
           </div>
 
           <div class="section">
@@ -269,6 +294,12 @@
           <div class="section">
             <h2>Contact</h2>
             <p>For privacy questions about Blood Contacts, contact the app owner or support channel provided with the app listing.</p>
+          </div>
+
+          <div class="section">
+            <h2>Website and Policy Links</h2>
+            <p>This website is the official Blood Contacts homepage and is publicly accessible without login. The privacy policy URL used here should match the URL configured in the Google OAuth consent screen.</p>
+            <p>Support: bloodcontacts.help@gmail.com</p>
           </div>
         </article>
       </div>
